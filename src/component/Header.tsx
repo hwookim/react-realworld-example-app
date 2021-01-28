@@ -1,17 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header(): JSX.Element {
   return (
     <nav className="navbar navbar-light">
       <div className="container">
-        <a className="navbar-brand" href="#/">
+        <Link to="/" className="navbar-brand">
           conduit
-        </a>
+        </Link>
         <ul className="nav navbar-nav pull-xs-right">
           <li className="nav-item">
-            <a className="nav-link" href="#/">
+            <Link to="/" className="nav-link">
               Home
-            </a>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/login" className="nav-link">
+              Sign in
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/register" className="nav-link">
+              Sign up
+            </Link>
           </li>
         </ul>
       </div>
