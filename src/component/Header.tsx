@@ -6,7 +6,7 @@ function Header(): JSX.Element {
     <nav className="navbar navbar-light">
       <div className="container">
         <Link to="/" className="navbar-brand">
-          conduit
+          RealWorld
         </Link>
         <ul className="nav navbar-nav pull-xs-right">
           <li className="nav-item">
