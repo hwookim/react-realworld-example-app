@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "./component/Header";
+import Header from "./components/common/Header";
 import { BrowserRouter, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Home from "./components/home";
+import Login from "./components/login";
+import Register from "./components/register";
 
 function App(): JSX.Element {
   return (
