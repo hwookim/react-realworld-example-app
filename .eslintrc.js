@@ -14,5 +14,6 @@ module.exports = {
   plugins: ["@typescript-eslint"],
   rules: {
     semi: "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
   },
 };
