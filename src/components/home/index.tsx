@@ -1,8 +1,6 @@
 import React from "react";
 import { APP_NAME } from "../../utils/constants";
-import ArticlePreview from "./ArticlePreview";
-
-import { ARTICLE } from "../../_mocks/article";
+import ArticleList from "./ArticleList";
 
 export default function Home(): JSX.Element {
   return (
@@ -26,7 +24,7 @@ export default function Home(): JSX.Element {
               </ul>
             </div>
             <div>
-              <ArticlePreview article={ARTICLE} />
+              <ArticleList />
             </div>
           </div>
         </div>
