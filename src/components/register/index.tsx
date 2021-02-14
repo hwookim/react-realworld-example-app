@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Register(): JSX.Element {
+export default function Register(): JSX.Element {
   return (
     <div className="auth-page">
       <div className="container page">
@@ -52,5 +52,3 @@ function Register(): JSX.Element {
     </div>
   );
 }
-
-export default Register;

@@ -4,7 +4,7 @@ import ArticlePreview from "./ArticlePreview";
 
 import { ARTICLE } from "../../_mocks/article";
 
-function Home(): JSX.Element {
+export default function Home(): JSX.Element {
   return (
     <div className="home-page">
       <div className="banner">
@@ -34,5 +34,3 @@ function Home(): JSX.Element {
     </div>
   );
 }
-
-export default Home;

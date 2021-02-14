@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Login(): JSX.Element {
+export default function Login(): JSX.Element {
   return (
     <div className="auth-page">
       <div className="container page">
@@ -44,5 +44,3 @@ function Login(): JSX.Element {
     </div>
   );
 }
-
-export default Login;

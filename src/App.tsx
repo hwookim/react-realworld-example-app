@@ -5,7 +5,7 @@ import Home from "./components/home";
 import Login from "./components/login";
 import Register from "./components/register";
 
-function App(): JSX.Element {
+export default function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Header />
@@ -15,5 +15,3 @@ function App(): JSX.Element {
     </BrowserRouter>
   );
 }
-
-export default App;
