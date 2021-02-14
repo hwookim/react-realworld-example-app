@@ -1,12 +1,12 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import App from "./App";
+import { renderWithRouter } from "./_testUtils/render";
 
+import App from "./App";
 import { APP_NAME } from "./utils/constants";
 
 describe("App", () => {
   test("render app name", () => {
-    const { container } = render(<App />);
+    const { container } = renderWithRouter(<App />);
     expect(container).toHaveTextContent(APP_NAME);
   });
 });

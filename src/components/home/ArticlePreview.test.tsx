@@ -1,19 +1,14 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
 
 import ArticlePreview from "./ArticlePreview";
 
 import { ARTICLE } from "../../_mocks/article";
 import { Article } from "../../type";
+import { renderWithRouter } from "../../_testUtils/render";
 
 describe("ArticlePreview", () => {
   const renderArticlePreview = (article: Article) => {
-    return render(
-      <BrowserRouter>
-        <ArticlePreview article={article} />
-      </BrowserRouter>
-    );
+    return renderWithRouter(<ArticlePreview article={article} />);
   };
 
   test("render Article title", () => {
