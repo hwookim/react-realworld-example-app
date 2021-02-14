@@ -1,9 +1,12 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import App from "./App";
 
-test("renders learn react link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/RealWorld/i);
-  expect(linkElement).toBeInTheDocument();
+import { APP_NAME } from "./utils/constants";
+
+describe("App", () => {
+  test("render app name", () => {
+    const { container } = render(<App />);
+    expect(container).toHaveTextContent(APP_NAME);
+  });
 });

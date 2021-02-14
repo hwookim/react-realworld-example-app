@@ -1,4 +1,6 @@
 import React from "react";
+import { APP_NAME } from "../../utils/constants";
+
 import { Link } from "react-router-dom";
 
 function Header(): JSX.Element {
@@ -6,7 +8,7 @@ function Header(): JSX.Element {
     <nav className="navbar navbar-light">
       <div className="container">
         <Link to="/" className="navbar-brand">
-          RealWorld
+          {APP_NAME}
         </Link>
         <ul className="nav navbar-nav pull-xs-right">
           <li className="nav-item">
