@@ -13,12 +13,14 @@ describe("ArticlePreview", () => {
     return renderWithRouter(<ArticleList />);
   };
 
-  test("render Article title", () => {
+  test("render Article title", async () => {
     const { articles } = ARTICLE_LIST_RESPONSE;
 
     $api.article.getArticleList = jest.fn().mockResolvedValue({ articles });
 
     const { findByText } = renderArticleList();
-    articles.forEach(({ title }) => findByText(title));
+    for (const { title } of articles) {
+      await findByText(title);
+    }
   });
 });
