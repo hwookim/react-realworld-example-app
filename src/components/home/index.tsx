@@ -24,9 +24,7 @@ export default function Home(): JSX.Element {
                 </li>
               </ul>
             </div>
-            <div>
-              <ArticleList />
-            </div>
+            <ArticleList />
           </div>
           <div className="col-md-3">
             <div className="sidebar">
