@@ -18,7 +18,10 @@ const ARTICLE: Article = {
   },
 };
 
-const ARTICLE_LIST_RESPONSE = {
+const ARTICLE_LIST_RESPONSE: {
+  articles: Article[];
+  articlesCount: number;
+} = {
   articles: [
     {
       slug: "how-to-train-your-dragon",

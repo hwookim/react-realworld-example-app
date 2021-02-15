@@ -1,9 +1,12 @@
 import React from "react";
+import { renderWithRouter } from "../../_testUtils/render";
 
 import ArticleList from "./ArticleList";
 
 import { ARTICLE_LIST_RESPONSE } from "../../_mocks/article";
-import { renderWithRouter } from "../../_testUtils/render";
+import $api from "../../api";
+
+jest.mock("../../api");
 
 describe("ArticlePreview", () => {
   const renderArticleList = () => {
@@ -13,7 +16,9 @@ describe("ArticlePreview", () => {
   test("render Article title", () => {
     const { articles } = ARTICLE_LIST_RESPONSE;
 
-    const { container } = renderArticleList();
-    articles.map(({ title }) => expect(container).toHaveTextContent(title));
+    $api.article.getArticleList = jest.fn().mockResolvedValue({ articles });
+
+    const { findByText } = renderArticleList();
+    articles.forEach(({ title }) => findByText(title));
   });
 });
