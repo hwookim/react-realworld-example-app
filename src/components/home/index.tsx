@@ -1,6 +1,7 @@
 import React from "react";
 import { APP_NAME } from "../../utils/constants";
 import ArticleList from "./ArticleList";
+import ArticleTagList from "./ArticleTagList";
 
 export default function Home(): JSX.Element {
   return (
@@ -25,6 +26,12 @@ export default function Home(): JSX.Element {
             </div>
             <div>
               <ArticleList />
+            </div>
+          </div>
+          <div className="col-md-3">
+            <div className="sidebar">
+              <p>Popular Tags</p>
+              <ArticleTagList />
             </div>
           </div>
         </div>

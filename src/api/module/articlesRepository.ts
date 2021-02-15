@@ -14,6 +14,10 @@ export interface ArticleListResponse {
   articlesCount: number;
 }
 
+export interface ArticleTagListResponse {
+  tags: string[];
+}
+
 export default function ArticleRepository(axios: AxiosInstance) {
   const getArticleList = (
     params: ArticleListRequest = {}
@@ -21,7 +25,11 @@ export default function ArticleRepository(axios: AxiosInstance) {
     return axios.get("/articles", { params }).then(({ data }) => data);
   };
 
+  const getTagList = (): Promise<ArticleTagListResponse> =>
+    axios.get("/tags").then(({ data }) => data);
+
   return {
     getArticleList,
+    getTagList,
   };
 }

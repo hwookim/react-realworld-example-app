@@ -61,4 +61,6 @@ const ARTICLE_LIST_RESPONSE: {
   articlesCount: 2,
 };
 
-export { ARTICLE, ARTICLE_LIST_RESPONSE };
+const ARTICLE_TAG_LIST: string[] = ["reactjs", "angularjs"];
+
+export { ARTICLE, ARTICLE_LIST_RESPONSE, ARTICLE_TAG_LIST };
