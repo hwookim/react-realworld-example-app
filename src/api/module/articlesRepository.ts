@@ -14,6 +14,10 @@ export interface ArticleListResponse {
   articlesCount: number;
 }
 
+export interface ArticleResponse {
+  article: Article;
+}
+
 export interface ArticleTagListResponse {
   tags: string[];
 }
@@ -25,11 +29,15 @@ export default function ArticleRepository(axios: AxiosInstance) {
     return axios.get("/articles", { params }).then(({ data }) => data);
   };
 
+  const getArticle = (slug: Article["slug"]): Promise<ArticleResponse> =>
+    axios.get(`/articles/${slug}`).then(({ data }) => data);
+
   const getTagList = (): Promise<ArticleTagListResponse> =>
     axios.get("/tags").then(({ data }) => data);
 
   return {
     getArticleList,
+    getArticle,
     getTagList,
   };
 }
