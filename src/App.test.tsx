@@ -14,8 +14,8 @@ describe("App", () => {
     expect(container).toHaveTextContent(APP_NAME);
   });
 
-  describe("click item", () => {
-    test("render Article", async () => {
+  describe("click article preview", () => {
+    test("render ArticlePage", async () => {
       const article = ARTICLE;
       const articles = [article];
 
