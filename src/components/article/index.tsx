@@ -3,6 +3,7 @@ import { RouteComponentProps } from "react-router-dom";
 
 import { Article } from "../../type";
 import $api from "../../api";
+import ArticleInfo from "./ArticleInfo";
 
 export interface Props {
   slug: Article["slug"];
@@ -23,13 +24,16 @@ export default function ArticlePage({
     loadArticle();
   }, []);
 
-  return (
+  return article ? (
     <div className="article-page" data-testid="article-page">
       <div className="banner">
         <div className="container">
           <h1>{article?.title}</h1>
+          <ArticleInfo article={article} />
         </div>
       </div>
     </div>
+  ) : (
+    <div />
   );
 }
