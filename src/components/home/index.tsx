@@ -3,7 +3,7 @@ import { APP_NAME } from "../../utils/constants";
 import ArticleList from "./ArticleList";
 import ArticleTagList from "./ArticleTagList";
 
-export default function Home(): JSX.Element {
+export default function HomePage(): JSX.Element {
   return (
     <div className="home-page">
       <div className="banner">

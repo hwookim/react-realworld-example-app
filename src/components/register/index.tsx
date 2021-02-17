@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Register(): JSX.Element {
+export default function RegisterPage(): JSX.Element {
   return (
     <div className="auth-page">
       <div className="container page">
