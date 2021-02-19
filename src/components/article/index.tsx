@@ -25,13 +25,14 @@ export default function ArticlePage({
   }, []);
 
   return article ? (
-    <div className="article-page" data-testid="article-page">
+    <div className="article-page">
       <div className="banner">
         <div className="container">
-          <h1>{article?.title}</h1>
+          <h1>{article.title}</h1>
           <ArticleInfo article={article} />
         </div>
       </div>
+      <div>{article.body}</div>
     </div>
   ) : (
     <div />
