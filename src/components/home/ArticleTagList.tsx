@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import $api from "../../api";
 
 export default function ArticleTagList(): JSX.Element {
+  const [, setLoading] = useState<boolean>(true);
   const [tags, setTags] = useState<string[]>([]);
 
   const loadTagList = async () => {
@@ -11,7 +12,9 @@ export default function ArticleTagList(): JSX.Element {
   };
 
   useEffect(() => {
+    setLoading(true);
     loadTagList();
+    return () => setLoading(false);
   }, []);
 
   return (

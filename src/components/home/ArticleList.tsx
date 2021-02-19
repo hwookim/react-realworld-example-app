@@ -5,6 +5,7 @@ import { Article } from "../../type";
 import $api from "../../api";
 
 export default function ArticleList(): JSX.Element {
+  const [, setLoading] = useState<boolean>(true);
   const [articles, setArticles] = useState<Article[]>([]);
 
   const loadArticleList = async () => {
@@ -13,7 +14,9 @@ export default function ArticleList(): JSX.Element {
   };
 
   useEffect(() => {
+    setLoading(true);
     loadArticleList();
+    return () => setLoading(false);
   }, []);
 
   return (
