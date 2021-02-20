@@ -32,7 +32,26 @@ export default function ArticlePage({
           <ArticleInfo article={article} />
         </div>
       </div>
-      <div>{article.body}</div>
+      <div className="container page">
+        <div className="row article-content">
+          <div className="col-xs-12">
+            <div>
+              <p>{article.body}</p>
+            </div>
+            <ul className="tag-list">
+              {article.tagList.map((tag) => {
+                return (
+                  <li className="tag-default tag-pill tag-outline" key={tag}>
+                    {tag}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+
+        <hr />
+      </div>
     </div>
   ) : (
     <div />
