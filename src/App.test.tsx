@@ -6,12 +6,26 @@ import App from "./App";
 
 import { APP_NAME } from "./utils/constants";
 import $api from "./api";
-import { ARTICLE } from "./_mocks/article";
+import {
+  ARTICLE,
+  ARTICLE_LIST_RESPONSE,
+  ARTICLE_TAG_LIST,
+} from "./_mocks/article";
 
 describe("App", () => {
-  test("render app name", () => {
-    const { container } = renderWithRouter(<App />);
-    expect(container).toHaveTextContent(APP_NAME);
+  const { articles } = ARTICLE_LIST_RESPONSE;
+  const tags = ARTICLE_TAG_LIST;
+
+  beforeEach(() => {
+    $api.article.getArticleList = jest.fn().mockResolvedValue({ articles });
+    $api.article.getTagList = jest.fn().mockResolvedValue({ tags });
+  });
+
+  describe("render", () => {
+    test("app name", () => {
+      const { findAllByText } = renderWithRouter(<App />);
+      findAllByText(APP_NAME);
+    });
   });
 
   describe("click article preview", () => {
