@@ -31,16 +31,18 @@ export default function ArticlePreview({ article }: Props): JSX.Element {
       </div>
 
       <Link to={`/article/${article.slug}`} className="preview-link">
-        <h1>{article.title}</h1>
-        <p>{article.description}</p>
-        <span>Read more...</span>
-        <ul className="tag-list">
-          {article.tagList.map((tag) => (
-            <li className="tag-default tag-pill tag-outline" key={tag}>
-              {tag}
-            </li>
-          ))}
-        </ul>
+        <div>
+          <h1>{article.title}</h1>
+          <p>{article.description}</p>
+          <span>Read more...</span>
+          <ul className="tag-list">
+            {article.tagList.map((tag) => (
+              <li className="tag-default tag-pill tag-outline" key={tag}>
+                {tag}
+              </li>
+            ))}
+          </ul>
+        </div>
       </Link>
     </div>
   );
