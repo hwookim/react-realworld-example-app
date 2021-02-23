@@ -1,4 +1,4 @@
-import { Article } from "../type";
+import { Article, Comment } from "../type";
 
 const ARTICLE: Article = {
   slug: "how-to-train-your-dragon",

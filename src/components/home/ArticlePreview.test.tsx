@@ -2,7 +2,7 @@ import React from "react";
 
 import ArticlePreview from "./ArticlePreview";
 
-import { ARTICLE } from "../../_mocks/article";
+import { ARTICLE } from "../../_mocks";
 import { Article } from "../../type";
 import { renderWithRouter } from "../../_testUtils/render";
 

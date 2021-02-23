@@ -3,7 +3,7 @@ import { renderWithRouter } from "../../_testUtils/render";
 
 import ArticleList from "./ArticleList";
 
-import { ARTICLE_LIST_RESPONSE } from "../../_mocks/article";
+import { ARTICLE_LIST_RESPONSE } from "../../_mocks";
 import $api from "../../api";
 
 jest.mock("../../api");

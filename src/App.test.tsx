@@ -6,11 +6,7 @@ import App from "./App";
 
 import { APP_NAME } from "./utils/constants";
 import $api from "./api";
-import {
-  ARTICLE,
-  ARTICLE_LIST_RESPONSE,
-  ARTICLE_TAG_LIST,
-} from "./_mocks/article";
+import { ARTICLE, ARTICLE_LIST_RESPONSE, ARTICLE_TAG_LIST } from "./_mocks";
 
 describe("App", () => {
   const { articles } = ARTICLE_LIST_RESPONSE;
