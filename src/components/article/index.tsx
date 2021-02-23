@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 
+import ArticleInfo from "./ArticleInfo";
+
 import { Article } from "../../type";
 import $api from "../../api";
-import ArticleContainer from "./ArticleContainer";
+import { EMPTY_ARTICLE } from "../../utils/constants";
 
 export interface Props {
   slug: Article["slug"];
@@ -13,7 +15,7 @@ export default function ArticlePage({
   match,
 }: RouteComponentProps<Props>): JSX.Element {
   const { slug } = match.params;
-  const [article, setArticle] = useState<Article>();
+  const [article, setArticle] = useState<Article>(EMPTY_ARTICLE);
 
   const loadArticle = async () => {
     const { article } = await $api.article.getArticle(slug);
@@ -24,5 +26,34 @@ export default function ArticlePage({
     loadArticle();
   }, []);
 
-  return article ? <ArticleContainer article={article} /> : <div />;
+  return (
+    <div className="article-page">
+      <div className="banner">
+        <div className="container">
+          <h1>{article.title}</h1>
+          <ArticleInfo article={article} />
+        </div>
+      </div>
+      <div className="container page">
+        <div className="row article-content">
+          <div className="col-xs-12">
+            <div>
+              <p>{article.body}</p>
+            </div>
+            <ul className="tag-list">
+              {article.tagList.map((tag) => {
+                return (
+                  <li className="tag-default tag-pill tag-outline" key={tag}>
+                    {tag}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+
+        <hr />
+      </div>
+    </div>
+  );
 }
