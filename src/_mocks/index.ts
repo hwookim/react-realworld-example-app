@@ -61,6 +61,19 @@ const ARTICLE_LIST_RESPONSE: {
   articlesCount: 2,
 };
 
+const COMMENT: Comment = {
+  id: 1,
+  createdAt: "2016-02-18T03:22:56.637Z",
+  updatedAt: "2016-02-18T03:22:56.637Z",
+  body: "It takes a Jacobian",
+  author: {
+    username: "jake",
+    bio: "I work at statefarm",
+    image: "https://i.stack.imgur.com/xHWG8.jpg",
+    following: false,
+  },
+};
+
 const ARTICLE_TAG_LIST: string[] = ["reactjs", "angularjs"];
 
-export { ARTICLE, ARTICLE_LIST_RESPONSE, ARTICLE_TAG_LIST };
+export { ARTICLE, ARTICLE_LIST_RESPONSE, ARTICLE_TAG_LIST, COMMENT };

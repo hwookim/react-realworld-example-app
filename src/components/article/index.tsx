@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 
 import ArticleInfo from "./ArticleInfo";
+import CommentList from "./CommentList";
 
-import { Article } from "../../type";
+import { Article, Comment } from "../../type";
 import $api from "../../api";
 import { EMPTY_ARTICLE } from "../../utils/constants";
 
@@ -16,14 +17,21 @@ export default function ArticlePage({
 }: RouteComponentProps<Props>): JSX.Element {
   const { slug } = match.params;
   const [article, setArticle] = useState<Article>(EMPTY_ARTICLE);
+  const [comments, setComments] = useState<Comment[]>([]);
 
   const loadArticle = async () => {
     const { article } = await $api.article.getArticle(slug);
     setArticle(article);
   };
 
+  const loadComments = async () => {
+    const { comments } = await $api.comment.getCommentsByArticleId(slug);
+    setComments(comments);
+  };
+
   useEffect(() => {
     loadArticle();
+    loadComments();
   }, []);
 
   return (
@@ -53,6 +61,9 @@ export default function ArticlePage({
         </div>
 
         <hr />
+        <div className="row">
+          <CommentList comments={comments} />
+        </div>
       </div>
     </div>
   );
