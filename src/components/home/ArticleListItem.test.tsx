@@ -1,20 +1,20 @@
 import React from "react";
+import render from "../../_testUtils/render";
 
 import ArticleListItem from "./ArticleListItem";
 
 import { ARTICLE } from "../../_mocks";
 import { Article } from "../../type";
-import { renderWithRouter } from "../../_testUtils/render";
 
 describe("ArticleListItem", () => {
   const renderArticlePreview = (article: Article) => {
-    return renderWithRouter(<ArticleListItem article={article} />);
+    return render(<ArticleListItem article={article} />);
   };
 
-  test("render Article title", () => {
+  test("render Article title", async () => {
     const article = ARTICLE;
 
     const { findByText } = renderArticlePreview(article);
-    findByText(article.title);
+    await findByText(article.title);
   });
 });

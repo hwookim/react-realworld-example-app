@@ -1,5 +1,5 @@
 import React from "react";
-import { renderWithRouter } from "./_testUtils/render";
+import render from "./_testUtils/render";
 import { fireEvent } from "@testing-library/react";
 
 import App from "./App";
@@ -18,9 +18,9 @@ describe("App", () => {
   });
 
   describe("render", () => {
-    test("app name", () => {
-      const { findAllByText } = renderWithRouter(<App />);
-      findAllByText(APP_NAME);
+    test("app name", async () => {
+      const { findAllByText } = render(<App />);
+      await findAllByText(APP_NAME);
     });
   });
 
@@ -32,7 +32,7 @@ describe("App", () => {
       $api.article.getArticles = jest.fn().mockResolvedValue({ articles });
       $api.article.getArticle = jest.fn().mockResolvedValue({ article });
 
-      const { findByText } = renderWithRouter(<App />);
+      const { findByText } = render(<App />);
       const articleLink = await findByText(article.description);
 
       fireEvent.click(articleLink);

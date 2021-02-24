@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import render from "../../_testUtils/render";
 
 import ArticleTagList from "./ArticleTagList";
 import { ARTICLE_TAGS } from "../../_mocks";

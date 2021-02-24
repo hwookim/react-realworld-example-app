@@ -1,15 +1,12 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import render from "../../_testUtils/render";
 
 import CommentListItem from "./CommentListItem";
 import { COMMENT } from "../../_mocks";
 
 describe("CommentListItem", () => {
   test("render Comment's information", async () => {
-    const { findByText } = render(<CommentListItem comment={COMMENT} />, {
-      wrapper: BrowserRouter,
-    });
+    const { findByText } = render(<CommentListItem comment={COMMENT} />);
 
     await findByText(COMMENT.body);
     await findByText(COMMENT.author.username);

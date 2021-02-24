@@ -1,5 +1,5 @@
 import React from "react";
-import { renderWithRouter } from "../../_testUtils/render";
+import render from "../../_testUtils/render";
 
 import ArticleList from "./ArticleList";
 
@@ -12,7 +12,7 @@ jest.mock("../../api");
 
 describe("ArticleList", () => {
   const renderArticleList = () => {
-    return renderWithRouter(<ArticleList />);
+    return render(<ArticleList />);
   };
 
   describe("render", () => {
