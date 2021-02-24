@@ -3,6 +3,7 @@ import ArticleListItem from "./ArticleListItem";
 
 import { Article } from "../../type";
 import $api from "../../api";
+import { NO_ARTICLES_MESSAGE } from "../../utils/constants";
 
 export default function ArticleList(): JSX.Element {
   const [, setLoading] = useState<boolean>(true);
@@ -18,6 +19,10 @@ export default function ArticleList(): JSX.Element {
     loadArticles();
     return () => setLoading(false);
   }, []);
+
+  if (!articles.length) {
+    return <div className="article-preview">{NO_ARTICLES_MESSAGE}</div>;
+  }
 
   return (
     <div>

@@ -20,4 +20,6 @@ const EMPTY_ARTICLE: Article = {
   },
 };
 
-export { APP_NAME, EMPTY_ARTICLE };
+const NO_ARTICLES_MESSAGE = "No articles are here... yet.";
+
+export { APP_NAME, EMPTY_ARTICLE, NO_ARTICLES_MESSAGE };

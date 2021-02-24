@@ -5,22 +5,35 @@ import ArticleList from "./ArticleList";
 
 import { ARTICLES_RESPONSE } from "../../_mocks";
 import $api from "../../api";
+import { Article } from "../../type";
+import { NO_ARTICLES_MESSAGE } from "../../utils/constants";
 
 jest.mock("../../api");
 
-describe("ArticleListItem", () => {
+describe("ArticleList", () => {
   const renderArticleList = () => {
     return renderWithRouter(<ArticleList />);
   };
 
-  test("render Article title", async () => {
-    const { articles } = ARTICLES_RESPONSE;
+  describe("render", () => {
+    test("each article title", async () => {
+      const { articles } = ARTICLES_RESPONSE;
+      $api.article.getArticles = jest.fn().mockResolvedValue({ articles });
 
-    $api.article.getArticles = jest.fn().mockResolvedValue({ articles });
+      const { findByText } = renderArticleList();
+      for (const { title } of articles) {
+        await findByText(title);
+      }
+    });
+  });
 
-    const { findByText } = renderArticleList();
-    for (const { title } of articles) {
-      await findByText(title);
-    }
+  describe("with no articles", () => {
+    test("render no articles message", async () => {
+      const articles = [] as Article[];
+      $api.article.getArticles = jest.fn().mockResolvedValue({ articles });
+
+      const { findByText } = renderArticleList();
+      await findByText(NO_ARTICLES_MESSAGE);
+    });
   });
 });
