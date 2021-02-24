@@ -1,14 +1,14 @@
 import React from "react";
 
-import ArticlePreview from "./ArticlePreview";
+import ArticleListItem from "./ArticleListItem";
 
 import { ARTICLE } from "../../_mocks";
 import { Article } from "../../type";
 import { renderWithRouter } from "../../_testUtils/render";
 
-describe("ArticlePreview", () => {
+describe("ArticleListItem", () => {
   const renderArticlePreview = (article: Article) => {
-    return renderWithRouter(<ArticlePreview article={article} />);
+    return renderWithRouter(<ArticleListItem article={article} />);
   };
 
   test("render Article title", () => {

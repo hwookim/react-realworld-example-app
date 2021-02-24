@@ -8,7 +8,7 @@ import $api from "../../api";
 
 jest.mock("../../api");
 
-describe("ArticlePreview", () => {
+describe("ArticleListItem", () => {
   const renderArticleList = () => {
     return renderWithRouter(<ArticleList />);
   };

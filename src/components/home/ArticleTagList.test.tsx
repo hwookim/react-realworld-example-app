@@ -7,7 +7,7 @@ import $api from "../../api";
 
 jest.mock("../../api");
 
-describe("ArticlePreview", () => {
+describe("ArticleListItem", () => {
   const renderArticleTagList = () => {
     return render(<ArticleTagList />);
   };

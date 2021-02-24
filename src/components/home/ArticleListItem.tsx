@@ -6,7 +6,7 @@ interface Props {
   article: Article;
 }
 
-export default function ArticlePreview({ article }: Props): JSX.Element {
+export default function ArticleListItem({ article }: Props): JSX.Element {
   return (
     <div className="article-preview">
       <div className="article-meta">

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ArticlePreview from "./ArticlePreview";
+import ArticleListItem from "./ArticleListItem";
 
 import { Article } from "../../type";
 import $api from "../../api";
@@ -22,7 +22,7 @@ export default function ArticleList(): JSX.Element {
   return (
     <div>
       {articles.map((article: Article) => (
-        <ArticlePreview article={article} key={article.slug} />
+        <ArticleListItem article={article} key={article.slug} />
       ))}
     </div>
   );
