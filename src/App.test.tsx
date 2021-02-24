@@ -6,15 +6,15 @@ import App from "./App";
 
 import { APP_NAME } from "./utils/constants";
 import $api from "./api";
-import { ARTICLE, ARTICLE_LIST_RESPONSE, ARTICLE_TAG_LIST } from "./_mocks";
+import { ARTICLE, ARTICLES_RESPONSE, ARTICLE_TAGS } from "./_mocks";
 
 describe("App", () => {
-  const { articles } = ARTICLE_LIST_RESPONSE;
-  const tags = ARTICLE_TAG_LIST;
+  const { articles } = ARTICLES_RESPONSE;
+  const tags = ARTICLE_TAGS;
 
   beforeEach(() => {
-    $api.article.getArticleList = jest.fn().mockResolvedValue({ articles });
-    $api.article.getTagList = jest.fn().mockResolvedValue({ tags });
+    $api.article.getArticles = jest.fn().mockResolvedValue({ articles });
+    $api.article.getTags = jest.fn().mockResolvedValue({ tags });
   });
 
   describe("render", () => {
@@ -29,7 +29,7 @@ describe("App", () => {
       const article = ARTICLE;
       const articles = [article];
 
-      $api.article.getArticleList = jest.fn().mockResolvedValue({ articles });
+      $api.article.getArticles = jest.fn().mockResolvedValue({ articles });
       $api.article.getArticle = jest.fn().mockResolvedValue({ article });
 
       const { findByText } = renderWithRouter(<App />);

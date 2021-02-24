@@ -1,7 +1,7 @@
 import { AxiosInstance } from "axios";
 import { Article } from "../../type";
 
-export interface ArticleListRequest {
+export interface ArticlesRequest {
   tag?: string;
   author?: string;
   favorited?: string;
@@ -9,7 +9,7 @@ export interface ArticleListRequest {
   offset?: number;
 }
 
-export interface ArticleListResponse {
+export interface ArticlesResponse {
   articles: Article[];
   articlesCount: number;
 }
@@ -18,26 +18,26 @@ export interface ArticleResponse {
   article: Article;
 }
 
-export interface ArticleTagListResponse {
+export interface ArticleTagsResponse {
   tags: string[];
 }
 
 export default function ArticleRepository(axios: AxiosInstance) {
-  const getArticleList = (
-    params: ArticleListRequest = {}
-  ): Promise<ArticleListResponse> => {
+  const getArticles = (
+    params: ArticlesRequest = {}
+  ): Promise<ArticlesResponse> => {
     return axios.get("/articles", { params }).then(({ data }) => data);
   };
 
   const getArticle = (slug: Article["slug"]): Promise<ArticleResponse> =>
     axios.get(`/articles/${slug}`).then(({ data }) => data);
 
-  const getTagList = (): Promise<ArticleTagListResponse> =>
+  const getTags = (): Promise<ArticleTagsResponse> =>
     axios.get("/tags").then(({ data }) => data);
 
   return {
-    getArticleList,
+    getArticles,
     getArticle,
-    getTagList,
+    getTags,
   };
 }

@@ -6,14 +6,14 @@ export default function ArticleTagList(): JSX.Element {
   const [, setLoading] = useState<boolean>(true);
   const [tags, setTags] = useState<string[]>([]);
 
-  const loadTagList = async () => {
-    const data = await $api.article.getTagList();
+  const loadTags = async () => {
+    const data = await $api.article.getTags();
     setTags(data.tags);
   };
 
   useEffect(() => {
     setLoading(true);
-    loadTagList();
+    loadTags();
     return () => setLoading(false);
   }, []);
 

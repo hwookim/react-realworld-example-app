@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 
 import ArticleTagList from "./ArticleTagList";
-import { ARTICLE_TAG_LIST } from "../../_mocks";
+import { ARTICLE_TAGS } from "../../_mocks";
 import $api from "../../api";
 
 jest.mock("../../api");
@@ -13,9 +13,9 @@ describe("ArticlePreview", () => {
   };
 
   test("render Article title", async () => {
-    const tags = ARTICLE_TAG_LIST;
+    const tags = ARTICLE_TAGS;
 
-    $api.article.getTagList = jest.fn().mockResolvedValue({ tags });
+    $api.article.getTags = jest.fn().mockResolvedValue({ tags });
 
     const { findByText } = renderArticleTagList();
     for (const tag of tags) {

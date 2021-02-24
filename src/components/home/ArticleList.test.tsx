@@ -3,7 +3,7 @@ import { renderWithRouter } from "../../_testUtils/render";
 
 import ArticleList from "./ArticleList";
 
-import { ARTICLE_LIST_RESPONSE } from "../../_mocks";
+import { ARTICLES_RESPONSE } from "../../_mocks";
 import $api from "../../api";
 
 jest.mock("../../api");
@@ -14,9 +14,9 @@ describe("ArticlePreview", () => {
   };
 
   test("render Article title", async () => {
-    const { articles } = ARTICLE_LIST_RESPONSE;
+    const { articles } = ARTICLES_RESPONSE;
 
-    $api.article.getArticleList = jest.fn().mockResolvedValue({ articles });
+    $api.article.getArticles = jest.fn().mockResolvedValue({ articles });
 
     const { findByText } = renderArticleList();
     for (const { title } of articles) {

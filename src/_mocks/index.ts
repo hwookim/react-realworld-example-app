@@ -18,7 +18,7 @@ const ARTICLE: Article = {
   },
 };
 
-const ARTICLE_LIST_RESPONSE: {
+const ARTICLES_RESPONSE: {
   articles: Article[];
   articlesCount: number;
 } = {
@@ -74,6 +74,6 @@ const COMMENT: Comment = {
   },
 };
 
-const ARTICLE_TAG_LIST: string[] = ["reactjs", "angularjs"];
+const ARTICLE_TAGS: string[] = ["reactjs", "angularjs"];
 
-export { ARTICLE, ARTICLE_LIST_RESPONSE, ARTICLE_TAG_LIST, COMMENT };
+export { ARTICLE, ARTICLES_RESPONSE, ARTICLE_TAGS, COMMENT };

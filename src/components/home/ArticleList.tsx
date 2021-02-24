@@ -8,14 +8,14 @@ export default function ArticleList(): JSX.Element {
   const [, setLoading] = useState<boolean>(true);
   const [articles, setArticles] = useState<Article[]>([]);
 
-  const loadArticleList = async () => {
-    const data = await $api.article.getArticleList();
+  const loadArticles = async () => {
+    const data = await $api.article.getArticles();
     setArticles(data.articles);
   };
 
   useEffect(() => {
     setLoading(true);
-    loadArticleList();
+    loadArticles();
     return () => setLoading(false);
   }, []);
 
