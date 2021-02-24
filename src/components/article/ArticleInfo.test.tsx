@@ -5,14 +5,12 @@ import ArticleInfo from "./ArticleInfo";
 import { ARTICLE } from "../../_mocks";
 
 describe("ArticleInfo", () => {
-  test("render Article's information", () => {
+  test("render Article's information", async () => {
     const article = ARTICLE;
 
-    const { container } = render(<ArticleInfo article={article} />);
+    const { findByText } = render(<ArticleInfo article={article} />);
 
-    expect(container).toHaveTextContent(article.author.username);
-    expect(container).toHaveTextContent(
-      new Date(article.createdAt).toDateString()
-    );
+    await findByText(article.author.username);
+    await findByText(new Date(article.createdAt).toDateString());
   });
 });

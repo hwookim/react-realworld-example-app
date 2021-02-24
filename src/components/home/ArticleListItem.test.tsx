@@ -14,7 +14,7 @@ describe("ArticleListItem", () => {
   test("render Article title", () => {
     const article = ARTICLE;
 
-    const { container } = renderArticlePreview(article);
-    expect(container).toHaveTextContent(article.title);
+    const { findByText } = renderArticlePreview(article);
+    findByText(article.title);
   });
 });
