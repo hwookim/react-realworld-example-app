@@ -4,6 +4,7 @@ import { RouteComponentProps } from "react-router-dom";
 import { Profile } from "../../type";
 import $api from "../../api";
 import { EMPTY_PROFILE } from "../../utils/constants";
+import ArticleList from "../common/ArticleList";
 
 export interface Props {
   username: Profile["username"];
@@ -47,7 +48,9 @@ export default function ProfilePage({
 
       <div className="container">
         <div className="row">
-          <div className="col-xs-12 col-md-10 offset-md-1">ArticleList</div>
+          <div className="col-xs-12 col-md-10 offset-md-1">
+            <ArticleList username={username} />
+          </div>
         </div>
       </div>
     </div>

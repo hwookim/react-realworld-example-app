@@ -1,6 +1,6 @@
 import React from "react";
 import { APP_NAME } from "../../utils/constants";
-import ArticleList from "./ArticleList";
+import ArticleList from "../common/ArticleList";
 import ArticleTagList from "./ArticleTagList";
 
 export default function HomePage(): JSX.Element {
