@@ -1,4 +1,4 @@
-import { Article } from "../type";
+import { Article, Profile } from "../type";
 
 const APP_NAME = "Real World";
 
@@ -20,6 +20,13 @@ const EMPTY_ARTICLE: Article = {
   },
 };
 
+const EMPTY_PROFILE: Profile = {
+  username: "",
+  bio: "",
+  image: "",
+  following: false,
+};
+
 const NO_ARTICLES_MESSAGE = "No articles are here... yet.";
 
-export { APP_NAME, EMPTY_ARTICLE, NO_ARTICLES_MESSAGE };
+export { APP_NAME, EMPTY_ARTICLE, EMPTY_PROFILE, NO_ARTICLES_MESSAGE };

@@ -5,6 +5,7 @@ import HomePage from "./components/home";
 import LoginPage from "./components/login";
 import RegisterPage from "./components/register";
 import ArticlePage from "./components/article";
+import ProfilePage from "./components/profile";
 
 export default function App(): JSX.Element {
   return (
@@ -14,6 +15,7 @@ export default function App(): JSX.Element {
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
       <Route path="/article/:slug" component={ArticlePage} />
+      <Route path="/@:username" component={ProfilePage} />
     </div>
   );
 }
