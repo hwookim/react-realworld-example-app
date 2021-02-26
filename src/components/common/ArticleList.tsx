@@ -22,7 +22,7 @@ export default function ArticleList({ username }: Props): JSX.Element {
   const loadArticles = async () => {
     const { articles, articlesCount } = await $api.article.getArticles({
       limit: 10,
-      offset: currentPage * 10,
+      offset: (currentPage - 1) * 10,
       author: username,
     });
     setArticles(articles);
