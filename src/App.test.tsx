@@ -5,7 +5,7 @@ import { createMemoryHistory } from "history";
 import App from "./App";
 
 import $api from "./api";
-import { ARTICLE, ARTICLES_RESPONSE, ARTICLE_TAGS } from "./_mocks";
+import { ARTICLE, ARTICLES_RESPONSE, ARTICLE_TAGS, PROFILE } from "./_mocks";
 
 describe("App", () => {
   const { articles } = ARTICLES_RESPONSE;
@@ -61,6 +61,21 @@ describe("App", () => {
       const { findByTestId } = render(<App />, history);
 
       await findByTestId("article-page");
+    });
+  });
+
+  describe("route to /@:username", () => {
+    test("render ProfilePage", async () => {
+      const profile = PROFILE;
+
+      const history = createMemoryHistory();
+      history.push(`/@${profile.username}`);
+
+      $api.user.getProfile = jest.fn().mockResolvedValue({ profile });
+
+      const { findByTestId } = render(<App />, history);
+
+      await findByTestId("profile-page");
     });
   });
 });

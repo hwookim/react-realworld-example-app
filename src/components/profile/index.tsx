@@ -29,7 +29,7 @@ export default function ProfilePage({
   }, [username]);
 
   return (
-    <div className="profile-page">
+    <div className="profile-page" data-testid="profile-page">
       <div className="user-info">
         <div className="container">
           <div className="row">

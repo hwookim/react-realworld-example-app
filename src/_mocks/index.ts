@@ -1,4 +1,4 @@
-import { Article, Comment } from "../type";
+import { Article, Comment, Profile } from "../type";
 
 const ARTICLE: Article = {
   slug: "how-to-train-your-dragon",
@@ -76,4 +76,11 @@ const COMMENT: Comment = {
 
 const ARTICLE_TAGS: string[] = ["reactjs", "angularjs"];
 
-export { ARTICLE, ARTICLES_RESPONSE, ARTICLE_TAGS, COMMENT };
+const PROFILE: Profile = {
+  username: "jake",
+  bio: "I work at statefarm",
+  image: "https://static.productionready.io/images/smiley-cyrus.jpg",
+  following: false,
+};
+
+export { ARTICLE, ARTICLES_RESPONSE, ARTICLE_TAGS, COMMENT, PROFILE };
