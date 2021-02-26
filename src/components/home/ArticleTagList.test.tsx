@@ -2,7 +2,7 @@ import React from "react";
 import render from "../../_testUtils/render";
 
 import ArticleTagList from "./ArticleTagList";
-import { ARTICLE_TAGS } from "../../_mocks";
+import { ARTICLE_TAGS } from "../../_testUtils/mockData";
 import $api from "../../api";
 
 jest.mock("../../api");

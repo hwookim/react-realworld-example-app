@@ -5,7 +5,12 @@ import { createMemoryHistory } from "history";
 import App from "./App";
 
 import $api from "./api";
-import { ARTICLE, ARTICLES_RESPONSE, ARTICLE_TAGS, PROFILE } from "./_mocks";
+import {
+  ARTICLE,
+  ARTICLES_RESPONSE,
+  ARTICLE_TAGS,
+  PROFILE,
+} from "./_testUtils/mockData";
 
 describe("App", () => {
   const { articles } = ARTICLES_RESPONSE;

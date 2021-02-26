@@ -3,7 +3,7 @@ import render from "../../_testUtils/render";
 
 import ArticleList from "./ArticleList";
 
-import { ARTICLES_RESPONSE } from "../../_mocks";
+import { ARTICLES_RESPONSE } from "../../_testUtils/mockData";
 import $api from "../../api";
 import { Article } from "../../type";
 import { NO_ARTICLES_MESSAGE } from "../../utils/constants";

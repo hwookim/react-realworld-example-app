@@ -2,7 +2,7 @@ import React from "react";
 import render from "../../_testUtils/render";
 
 import ArticleInfo from "./ArticleInfo";
-import { ARTICLE } from "../../_mocks";
+import { ARTICLE } from "../../_testUtils/mockData";
 
 describe("ArticleInfo", () => {
   test("render Article's information", async () => {

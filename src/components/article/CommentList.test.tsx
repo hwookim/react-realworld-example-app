@@ -2,7 +2,7 @@ import React from "react";
 import render from "../../_testUtils/render";
 
 import CommentList from "./CommentList";
-import { COMMENT } from "../../_mocks";
+import { COMMENT } from "../../_testUtils/mockData";
 
 describe("CommentList", () => {
   test("render All Comments", async () => {

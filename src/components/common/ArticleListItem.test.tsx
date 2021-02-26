@@ -5,7 +5,7 @@ import { fireEvent } from "@testing-library/react";
 
 import ArticleListItem from "./ArticleListItem";
 
-import { ARTICLE } from "../../_mocks";
+import { ARTICLE } from "../../_testUtils/mockData";
 
 describe("ArticleListItem", () => {
   test("render Article title", async () => {
