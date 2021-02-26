@@ -24,7 +24,7 @@ describe("App", () => {
     });
   });
 
-  describe("click article preview", () => {
+  describe("route to /article/:slug", () => {
     test("render ArticlePage", async () => {
       const history = createMemoryHistory();
       const article = ARTICLE;
