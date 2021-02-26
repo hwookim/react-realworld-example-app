@@ -16,7 +16,7 @@ describe("ArticleListItem", () => {
   });
 
   describe("click link", () => {
-    test("run history push", async () => {
+    test("route to /article/:slug", async () => {
       const history = createMemoryHistory();
       history.push = jest.fn();
 
