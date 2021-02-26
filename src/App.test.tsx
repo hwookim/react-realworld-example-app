@@ -4,7 +4,6 @@ import { createMemoryHistory } from "history";
 
 import App from "./App";
 
-import { APP_NAME } from "./utils/constants";
 import $api from "./api";
 import { ARTICLE, ARTICLES_RESPONSE, ARTICLE_TAGS } from "./_mocks";
 
@@ -17,27 +16,51 @@ describe("App", () => {
     $api.article.getTags = jest.fn().mockResolvedValue({ tags });
   });
 
-  describe("render", () => {
-    test("app name", async () => {
-      const { findAllByText } = render(<App />);
-      await findAllByText(APP_NAME);
+  describe("route to /", () => {
+    test("render LoginPage", async () => {
+      const history = createMemoryHistory();
+      history.push(`/`);
+
+      const { findByTestId } = render(<App />, history);
+
+      await findByTestId("home-page");
+    });
+  });
+
+  describe("route to /login", () => {
+    test("render LoginPage", async () => {
+      const history = createMemoryHistory();
+      history.push(`/login`);
+
+      const { findByTestId } = render(<App />, history);
+
+      await findByTestId("login-page");
+    });
+  });
+
+  describe("route to /register", () => {
+    test("render RegisterPage", async () => {
+      const history = createMemoryHistory();
+      history.push(`/register`);
+
+      const { findByTestId } = render(<App />, history);
+
+      await findByTestId("register-page");
     });
   });
 
   describe("route to /article/:slug", () => {
     test("render ArticlePage", async () => {
-      const history = createMemoryHistory();
       const article = ARTICLE;
-      const articles = [article];
 
-      $api.article.getArticles = jest.fn().mockResolvedValue({ articles });
-      $api.article.getArticle = jest.fn().mockResolvedValue({ article });
-
-      const { findByText } = render(<App />, history);
-
+      const history = createMemoryHistory();
       history.push(`/article/${article.slug}`);
 
-      await findByText(article.body);
+      $api.article.getArticle = jest.fn().mockResolvedValue({ article });
+
+      const { findByTestId } = render(<App />, history);
+
+      await findByTestId("article-page");
     });
   });
 });

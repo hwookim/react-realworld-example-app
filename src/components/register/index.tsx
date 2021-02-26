@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function RegisterPage(): JSX.Element {
   return (
-    <div className="auth-page">
+    <div className="auth-page" data-testid="register-page">
       <div className="container page">
         <div className="row">
           <div className="col-md-6 offset-md-3 col-xs-12">

@@ -35,7 +35,7 @@ export default function ArticlePage({
   }, []);
 
   return (
-    <div className="article-page">
+    <div className="article-page" data-testid="article-page">
       <div className="banner">
         <div className="container">
           <h1>{article.title}</h1>

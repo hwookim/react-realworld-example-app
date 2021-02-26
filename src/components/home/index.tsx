@@ -5,7 +5,7 @@ import ArticleTagList from "./ArticleTagList";
 
 export default function HomePage(): JSX.Element {
   return (
-    <div className="home-page">
+    <div className="home-page" data-testid="home-page">
       <div className="banner">
         <div className="container">
           <h1 className="logo-font">{APP_NAME}</h1>
