@@ -1,6 +1,6 @@
 import React from "react";
 import render from "./_testUtils/render";
-import { fireEvent } from "@testing-library/react";
+import { createMemoryHistory } from "history";
 
 import App from "./App";
 
@@ -26,16 +26,16 @@ describe("App", () => {
 
   describe("click article preview", () => {
     test("render ArticlePage", async () => {
+      const history = createMemoryHistory();
       const article = ARTICLE;
       const articles = [article];
 
       $api.article.getArticles = jest.fn().mockResolvedValue({ articles });
       $api.article.getArticle = jest.fn().mockResolvedValue({ article });
 
-      const { findByText } = render(<App />);
-      const articleLink = await findByText(article.description);
+      const { findByText } = render(<App />, history);
 
-      fireEvent.click(articleLink);
+      history.push(`/article/${article.slug}`);
 
       await findByText(article.body);
     });

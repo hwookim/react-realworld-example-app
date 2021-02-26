@@ -1,13 +1,18 @@
 import React from "react";
 
 import { render, RenderResult } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
+import { RouterProps } from "react-router";
+import { createMemoryHistory } from "history";
 import { RecoilRoot } from "recoil";
 
-export default function (ui: JSX.Element): RenderResult {
+export default function (
+  ui: JSX.Element,
+  history: RouterProps["history"] = createMemoryHistory()
+): RenderResult {
   return render(
     <RecoilRoot>
-      <BrowserRouter>{ui}</BrowserRouter>
+      <Router history={history}>{ui}</Router>
     </RecoilRoot>
   );
 }
