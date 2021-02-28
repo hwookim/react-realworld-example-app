@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState, ChangeEvent } from "react";
 import { Link } from "react-router-dom";
+import $api from "../../api";
+import { useSetRecoilState } from "recoil";
+import { userState } from "../../state/userState";
 
 export default function LoginPage(): JSX.Element {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const setUser = useSetRecoilState(userState);
+
+  const changeEmail = ({ target }: ChangeEvent<HTMLInputElement>) =>
+    setEmail(target.value);
+  const changePassword = ({ target }: ChangeEvent<HTMLInputElement>) =>
+    setPassword(target.value);
+
+  const login = async () => {
+    const { user } = await $api.user.login({ email, password });
+    setUser(user);
+  };
+
   return (
     <div className="auth-page" data-testid="login-page">
       <div className="container page">
@@ -19,6 +36,8 @@ export default function LoginPage(): JSX.Element {
                     className="form-control form-control-lg"
                     type="email"
                     placeholder="Email"
+                    value={email}
+                    onChange={changeEmail}
                   />
                 </fieldset>
 
@@ -27,12 +46,14 @@ export default function LoginPage(): JSX.Element {
                     className="form-control form-control-lg"
                     type="password"
                     placeholder="Password"
+                    value={password}
+                    onChange={changePassword}
                   />
                 </fieldset>
 
                 <button
                   className="btn btn-lg btn-primary pull-xs-right"
-                  type="submit"
+                  onClick={login}
                 >
                   Sign in
                 </button>
